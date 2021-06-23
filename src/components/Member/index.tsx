@@ -3,8 +3,8 @@ import { View, Text } from 'react-native'
 
 import { Avatar } from '../Avatar'
 
-import { styles } from './styles'
 import { theme } from '../../global/styles/theme'
+import { styles } from './styles'
 
 export type MemberProps = {
   id: string
@@ -26,7 +26,6 @@ export const Member = ({ data }: Props) => {
     <View style={styles.container}>
       <Avatar
         urlImage={data.avatar_url}
-        customStyle={styles.avatar}
       />
 
       <View>

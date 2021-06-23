@@ -9,26 +9,27 @@ export const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: 360,
-  },
-  title: {
-    color: theme.colors.heading,
-    textAlign: 'center',
-    fontSize: 30,
-    marginBottom: 16,
-    fontFamily: theme.fonts.title700,
-    lineHeight: 40
+    height: 320,
+    bottom: 40
   },
   content: {
-    marginTop: -40,
+    marginTop: -80,
     paddingHorizontal: 50
   },
-  subtitle: {
+  title: {
+    fontFamily: theme.fonts.title700,
+    fontSize: 34,
     color: theme.colors.heading,
-    fontSize: 13,
     textAlign: 'center',
-    marginBottom: 40,
+    lineHeight: 40,
+    marginBottom: 16,
+  },
+  subtitle: {
     fontFamily: theme.fonts.title500,
-    lineHeight: 25
+    fontSize: 15,
+    color: theme.colors.heading,
+    textAlign: 'center',
+    lineHeight: 25,
+    marginBottom: 40,
   }
 })

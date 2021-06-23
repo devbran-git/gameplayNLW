@@ -8,14 +8,14 @@ export const styles = StyleSheet.create({
   },
   banner: {
     width: '100%',
-    height: 234,
-    marginBottom: 24
+    height: 200,
+    marginBottom: 20
   },
   bannerContent: {
     flex: 1,
     justifyContent: 'flex-end',
     paddingHorizontal: 24,
-    marginBottom: 30
+    marginBottom: 20
   },
   title: {
     fontSize: 28,
@@ -30,11 +30,15 @@ export const styles = StyleSheet.create({
   members: {
     width: '100%',
     marginLeft: 24,
-    marginTop: 24
+    marginTop: 20
   },
   footer: {
     paddingHorizontal: 24,
-    paddingVertical: 20,
-    marginBottom: getBottomSpace()
+    paddingVertical: 35,
+    marginBottom: getBottomSpace() - 35
+  },
+  listDivider: {
+    margin: 65,
+    top: 15
   }
 })

@@ -2,15 +2,15 @@ import React, { useState } from 'react'
 import { View, FlatList } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
-import { CategorySelect } from '../../components/CategorySelect'
-import { ListDivider } from '../../components/ListDivider'
-import { ListHeader } from '../../components/ListHeader'
-import { ButtonAdd } from '../../components/ButtonAdd'
 import { Profile } from '../../components/Profile'
+import { Background } from '../../components/Background'
+import { ButtonAdd } from '../../components/ButtonAdd'
+import { ListHeader } from '../../components/ListHeader'
+import { Appointment } from '../../components/Appointment'
+import { ListDivider } from '../../components/ListDivider'
+import { CategorySelect } from '../../components/CategorySelect'
 
 import { styles } from './styles'
-import { Appointment } from '../../components/Appointment'
-import Background from '../../components/Background'
 
 const appointments = [
   {
@@ -88,17 +88,16 @@ const appointments = [
 ]
 
 export const Home = () => {
-
   const { navigate } = useNavigation()
 
   const [category, setCategory] = useState('')
 
+  const handleAppointmentCreate = () => navigate('AppointmentCreate')
+  const handleAppointmentDetails = () => navigate('AppointmentDetails')
+
   const handleCategorySelect = (categoryId: string) => {
     categoryId === category ? setCategory('') : setCategory(categoryId)
   }
-
-  const handleAppointmentDetails = () => navigate('AppointmentDetails')
-  const handleAppointmentCreate = () => navigate('AppointmentCreate')
 
   return (
     <Background>
@@ -120,6 +119,7 @@ export const Home = () => {
           />
 
           <FlatList
+            style={styles.matches}
             data={appointments}
             keyExtractor={item => item.id}
             renderItem={({ item }) => (
@@ -128,8 +128,7 @@ export const Home = () => {
                 onPress={handleAppointmentDetails}
               />
             )}
-            ItemSeparatorComponent={() => <ListDivider />}
-            style={styles.matches}
+            ItemSeparatorComponent={() => <ListDivider customStyle={styles.listDivider} />}
             showsVerticalScrollIndicator={false}
           />
         </View>

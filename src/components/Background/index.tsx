@@ -8,7 +8,7 @@ type Props = {
   children: ReactNode
 }
 
-const Background = ({ children }: Props) => {
+export const Background = ({ children }: Props) => {
 
   const { secondary80, secondary100 } = theme.colors
 
@@ -21,5 +21,3 @@ const Background = ({ children }: Props) => {
     </LinearGradient>
   )
 }
-
-export default Background

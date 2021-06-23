@@ -1,18 +1,25 @@
 import React from 'react'
-import { ImageBackground, Text, View, FlatList } from 'react-native'
+import {
+  View,
+  Text,
+  FlatList,
+  ImageBackground
+} from 'react-native'
+
 import { BorderlessButton } from 'react-native-gesture-handler'
 import { Fontisto } from '@expo/vector-icons'
 
-import Background from '../../components/Background'
-import { Header } from '../../components/Header/index'
 import { Member } from '../../components/Member'
+import { Header } from '../../components/Header/index'
+import { ButtonIcon } from '../../components/ButtonIcon'
+import { Background } from '../../components/Background'
+import { ListHeader } from '../../components/ListHeader'
 import { ListDivider } from '../../components/ListDivider'
-import ButtonIcon from '../../components/ButtonIcon'
 
 import BannerImg from '../../assets/banner.png'
+
 import { theme } from '../../global/styles/theme'
 import { styles } from './styles'
-import { ListHeader } from '../../components/ListHeader'
 
 export const AppointmentDetails = () => {
 
@@ -77,7 +84,7 @@ export const AppointmentDetails = () => {
         data={members}
         keyExtractor={item => item.id}
         renderItem={({ item }) => <Member data={item} />}
-        ItemSeparatorComponent={() => <ListDivider />}
+        ItemSeparatorComponent={() => <ListDivider customStyle={styles.listDivider} />}
         showsVerticalScrollIndicator={false}
       />
       <View style={styles.footer}>

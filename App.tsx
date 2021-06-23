@@ -24,7 +24,7 @@ const App = () => {
     <>
       <StatusBar
         barStyle='light-content'
-        backgroundColor='tranparent'
+        backgroundColor='transparent'
         translucent
       />
       <Routes />

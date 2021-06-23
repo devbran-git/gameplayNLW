@@ -2,8 +2,8 @@ import React from 'react'
 import { Text, View, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
-import Background from '../../components/Background'
-import ButtonIcon from '../../components/ButtonIcon'
+import { Background } from '../../components/Background'
+import { ButtonIcon } from '../../components/ButtonIcon'
 import IllustrationImg from '../../assets/illustration.png'
 
 import { styles } from './styles'
@@ -13,8 +13,6 @@ export const SignIn = () => {
   const { navigate } = useNavigation()
 
   const handleSignIn = () => navigate('Home')
-
-  console.disableYellowBox = true
 
   return (
     <Background>

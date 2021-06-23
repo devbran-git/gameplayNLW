@@ -9,8 +9,6 @@ type Props = {
 }
 
 export const ListHeader = ({ title, subtitle }: Props) => {
-
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>

@@ -1,14 +1,13 @@
 import React, { ReactNode } from 'react'
 import { View, Text } from 'react-native'
-import { BorderlessButton } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
+import { BorderlessButton } from 'react-native-gesture-handler'
+
+import { Feather } from '@expo/vector-icons'
 
 import { LinearGradient } from 'expo-linear-gradient'
 
 import { theme } from '../../global/styles/theme'
-
-import { Feather } from '@expo/vector-icons'
-
 import { styles } from './styles'
 
 type Props = {
