@@ -36,9 +36,17 @@ export const AppointmentCreate = () => {
     setOpenGuildsModal(true)
   }
 
+  const handleCloseModal = () => {
+    setOpenGuildsModal(false)
+  }
+
   const handleGuildSelect = (guildSelect: GuildProps) => {
     setGuild(guildSelect)
     setOpenGuildsModal(false)
+  }
+
+  const handleCategorySelect = (categoryId: string) => {
+    setCategory(categoryId)
   }
 
   return (
@@ -47,7 +55,6 @@ export const AppointmentCreate = () => {
       style={styles.container}
     >
       <ScrollView>
-
         <Background>
           <Header
             title='Agendar partida'
@@ -62,7 +69,7 @@ export const AppointmentCreate = () => {
 
           <CategorySelect
             hasCheckBox
-            setCategory={setCategory}
+            setCategory={handleCategorySelect}
             categorySelected={category}
           />
 
@@ -96,7 +103,7 @@ export const AppointmentCreate = () => {
 
             <View style={styles.field}>
               <View>
-                <Text style={styles.label}>
+                <Text style={[styles.label, { marginBottom: 12 }]}>
                   Dia e mês
                 </Text>
 
@@ -110,7 +117,7 @@ export const AppointmentCreate = () => {
               </View>
 
               <View>
-                <Text style={styles.label}>
+                <Text style={[styles.label, { marginBottom: 12 }]}>
                   Hora e minuto
                 </Text>
 
@@ -149,10 +156,11 @@ export const AppointmentCreate = () => {
         </Background>
       </ScrollView>
 
-      <ModalView visible={openGuildsModal}>
+      <ModalView
+        visible={openGuildsModal} closeModal={handleCloseModal}
+      >
         <Guilds handleGuildSelect={handleGuildSelect} />
       </ModalView>
-
     </KeyboardAvoidingView>
   )
 }

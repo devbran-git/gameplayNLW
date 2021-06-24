@@ -11,6 +11,6 @@ export const styles = StyleSheet.create({
   },
   listDivider: {
     left: 110,
-    top: 10
+    top: 15
   }
 })

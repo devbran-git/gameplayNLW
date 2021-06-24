@@ -128,6 +128,7 @@ export const Home = () => {
                 onPress={handleAppointmentDetails}
               />
             )}
+            contentContainerStyle={{ paddingBottom: 40 }}
             ItemSeparatorComponent={() => <ListDivider customStyle={styles.listDivider} />}
             showsVerticalScrollIndicator={false}
           />

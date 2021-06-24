@@ -15,13 +15,14 @@ export const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    marginTop: 48
+    marginTop: 27
   },
   matches: {
     marginTop: 24,
     marginLeft: 24
   },
   listDivider: {
-    left: 85
+    left: 85,
+    bottom: 2.5
   }
 })

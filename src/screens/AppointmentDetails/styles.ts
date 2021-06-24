@@ -20,12 +20,13 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontFamily: theme.fonts.title700,
-    color: theme.colors.heading
+    color: theme.colors.heading,
   },
   subtitle: {
     fontSize: 13,
     fontFamily: theme.fonts.text400,
-    color: theme.colors.heading
+    color: theme.colors.heading,
+    lineHeight: 21
   },
   members: {
     width: '100%',
