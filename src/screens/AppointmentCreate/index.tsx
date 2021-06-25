@@ -24,14 +24,13 @@ import { ModalView } from '../../components/ModalView'
 import { SmallInput } from '../../components/SmallInput'
 import { Background } from '../../components/Background'
 import { CategorySelect } from '../../components/CategorySelect'
+import { GenericAlert } from '../../components/GenericAlert'
 
 import { theme } from '../../global/styles/theme'
 import { styles } from './styles'
 
 import { GuildProps } from '../../components/Guild'
 import { COLLECTION_APPOINTMENTS } from '../../configs/database'
-import { Alert } from 'react-native'
-import { GenericAlert } from '../../components/GenericAlert'
 
 export const AppointmentCreate = () => {
 
@@ -108,17 +107,17 @@ export const AppointmentCreate = () => {
       category,
       date: `${day}/${month} às ${hour}:${minute}h`,
       description
-    }
+    };
 
-    const storage = await AsyncStorage.getItem(COLLECTION_APPOINTMENTS)
-    const appointments = storage ? JSON.parse(storage) : []
+    const storage = await AsyncStorage.getItem(COLLECTION_APPOINTMENTS);
+    const appointments = storage ? JSON.parse(storage) : [];
 
     await AsyncStorage.setItem(
       COLLECTION_APPOINTMENTS,
       JSON.stringify([...appointments, newAppointment])
-    )
+    );
 
-    navigate('Home')
+    navigate('Home');
   }
 
 

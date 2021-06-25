@@ -31,7 +31,7 @@ export const Home = () => {
     categoryId === category ? setCategory('') : setCategory(categoryId)
   }
 
-  const loadAppointments = async () => {
+  async function loadAppointments() {
     const response = await AsyncStorage.getItem(COLLECTION_APPOINTMENTS)
     const storage: AppointmentProps[] = response ? JSON.parse(response) : []
 
@@ -40,12 +40,13 @@ export const Home = () => {
     } else {
       setAppointments(storage)
     }
+
     setLoading(false)
   }
 
   useFocusEffect(useCallback(() => {
     loadAppointments()
-  }, []))
+  }, [category]))
 
   return (
     <Background>
