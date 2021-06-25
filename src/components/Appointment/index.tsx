@@ -50,11 +50,16 @@ export const Appointment = ({ data, ...rest }: Props) => {
           <View style={styles.header}>
 
 
-            <Text style={styles.title}>
+            <Text
+              style={styles.title}
+              numberOfLines={1}
+            >
               {data.guild.name}
             </Text>
 
-            <Text style={styles.category}>
+            <Text style={styles.category}
+
+            >
               {category.title}
             </Text>
 

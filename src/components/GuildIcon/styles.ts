@@ -16,6 +16,6 @@ export const styles = StyleSheet.create({
     width: 66,
     height: 62,
     marginRight: 20,
-    left: 11
+    left: 10
   }
 })
