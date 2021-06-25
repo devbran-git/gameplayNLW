@@ -30,6 +30,8 @@ import { styles } from './styles'
 
 import { GuildProps } from '../../components/Guild'
 import { COLLECTION_APPOINTMENTS } from '../../configs/database'
+import { Alert } from 'react-native'
+import { GenericAlert } from '../../components/GenericAlert'
 
 export const AppointmentCreate = () => {
 
@@ -45,6 +47,10 @@ export const AppointmentCreate = () => {
   const [hour, setHour] = useState('')
   const [minute, setMinute] = useState('')
   const [description, setDescription] = useState('')
+
+  const [title, setTitle] = useState('')
+  const [message, setMessage] = useState('')
+  const [genericAlert, setGenericAlert] = useState(() => false)
 
   const handleOpenGuilds = () => {
     setOpenGuildsModal(true)
@@ -63,7 +69,39 @@ export const AppointmentCreate = () => {
     setCategory(categoryId)
   }
 
+  const handleCloseAlert = () => setGenericAlert(!genericAlert)
+
   const handleSave = async () => {
+
+    if (!category) {
+      setGenericAlert(!genericAlert)
+      setTitle('Oops!')
+      setMessage('Você precisa selecionar uma categoria.')
+      return
+    }
+
+    if (!guild.name) {
+      setGenericAlert(!genericAlert)
+      setTitle('Oops!')
+      setMessage('Selecione um servidor.')
+      return
+    }
+
+
+    if (!day || !month) {
+      setGenericAlert(!genericAlert)
+      setTitle('Oops!')
+      setMessage('Insira dia e mês.')
+      return
+    }
+
+    if (!hour || !minute) {
+      setGenericAlert(!genericAlert)
+      setTitle('Oops!')
+      setMessage('Insira o horário.')
+      return
+    }
+
     const newAppointment = {
       id: uuid.v4(),
       guild,
@@ -212,6 +250,13 @@ export const AppointmentCreate = () => {
       >
         <Guilds handleGuildSelect={handleGuildSelect} />
       </ModalView>
+
+      <GenericAlert
+        visible={genericAlert}
+        title={title}
+        message={message}
+        closeGenericAlert={handleCloseAlert}
+      />
     </KeyboardAvoidingView>
   )
 }
