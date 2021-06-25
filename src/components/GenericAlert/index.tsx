@@ -19,7 +19,7 @@ type ComponentProps = ModalProps & RectButtonProps
 type Props = ComponentProps & {
   title: string
   message: string
-  closeGenericAlert: () => void
+  closeGenericAlert?: () => void
 }
 
 export const GenericAlert = ({ title, message, closeGenericAlert, ...rest }: Props) => {

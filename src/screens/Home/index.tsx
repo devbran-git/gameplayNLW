@@ -23,9 +23,13 @@ export const Home = () => {
   const [category, setCategory] = useState('')
   const [appointments, setAppointments] = useState<AppointmentProps[]>([])
 
-  const handleAppointmentCreate = () => navigate('AppointmentCreate')
-  const handleAppointmentDetails = () => navigate('AppointmentDetails')
+  function handleAppointmentDetails(guildSelected: AppointmentProps) {
+    navigate('AppointmentDetails', { guildSelected });
+  }
 
+  function handleAppointmentCreate() {
+    navigate('AppointmentCreate');
+  }
 
   const handleCategorySelect = (categoryId: string) => {
     categoryId === category ? setCategory('') : setCategory(categoryId)
@@ -76,7 +80,7 @@ export const Home = () => {
               renderItem={({ item }) => (
                 <Appointment
                   data={item}
-                  onPress={handleAppointmentDetails}
+                  onPress={() => handleAppointmentDetails(item)}
                 />
               )}
               contentContainerStyle={{ paddingBottom: 40 }}
