@@ -1,20 +1,19 @@
 import React, { useState, useCallback } from 'react'
-import { View, FlatList } from 'react-native'
+import { View, FlatList, Text } from 'react-native'
 import { useNavigation, useFocusEffect } from '@react-navigation/native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
-import { Profile } from '../../components/Profile'
-import { Background } from '../../components/Background'
-import { ButtonAdd } from '../../components/ButtonAdd'
-import { ListHeader } from '../../components/ListHeader'
+import { CategorySelect } from '../../components/CategorySelect'
 import { Appointment, AppointmentProps } from '../../components/Appointment'
 import { ListDivider } from '../../components/ListDivider'
-import { CategorySelect } from '../../components/CategorySelect'
+import { ListHeader } from '../../components/ListHeader'
+import { Background } from '../../components/Background'
+import { ButtonAdd } from '../../components/ButtonAdd'
+import { Profile } from '../../components/Profile'
+import { Load } from '../../components/Load'
 
 import { styles } from './styles'
-
 import { COLLECTION_APPOINTMENTS } from '../../configs/database'
-import { Load } from '../../components/Load'
 
 export const Home = () => {
   const { navigate } = useNavigation()
@@ -23,12 +22,10 @@ export const Home = () => {
   const [category, setCategory] = useState('')
   const [appointments, setAppointments] = useState<AppointmentProps[]>([])
 
-  function handleAppointmentDetails(guildSelected: AppointmentProps) {
-    navigate('AppointmentDetails', { guildSelected });
-  }
+  const handleAppointmentCreate = () => navigate('AppointmentCreate')
 
-  function handleAppointmentCreate() {
-    navigate('AppointmentCreate');
+  const handleAppointmentDetails = (guildSelected: AppointmentProps) => {
+    navigate('AppointmentDetails', { guildSelected })
   }
 
   const handleCategorySelect = (categoryId: string) => {
@@ -73,20 +70,25 @@ export const Home = () => {
               subtitle={`Total ${appointments.length}`}
             />
 
-            <FlatList
-              style={styles.matches}
-              data={appointments}
-              keyExtractor={item => item.id}
-              renderItem={({ item }) => (
-                <Appointment
-                  data={item}
-                  onPress={() => handleAppointmentDetails(item)}
-                />
-              )}
-              contentContainerStyle={{ paddingBottom: 40 }}
-              ItemSeparatorComponent={() => <ListDivider customStyle={styles.listDivider} />}
-              showsVerticalScrollIndicator={false}
-            />
+            {appointments.length > 0 ?
+              <FlatList
+                style={styles.matches}
+                data={appointments}
+                keyExtractor={item => item.id}
+                renderItem={({ item }) => (
+                  <Appointment
+                    data={item}
+                    onPress={() => handleAppointmentDetails(item)}
+                  />
+                )}
+                contentContainerStyle={{ paddingBottom: 40 }}
+                ItemSeparatorComponent={() => <ListDivider customStyle={styles.listDivider} />}
+                showsVerticalScrollIndicator={false}
+              />
+              :
+              <Text style={styles.textEmptyBlock}>Nada por aqui. Que tal agendar uma partida?</Text>
+            }
+
           </View>
         }
 

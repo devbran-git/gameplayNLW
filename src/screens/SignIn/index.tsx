@@ -1,16 +1,18 @@
 import React from 'react'
-import { Text, View, Image, Alert, ActivityIndicator } from 'react-native'
+import { View, Alert, Animated } from 'react-native'
 import { useAuth } from '../../hooks/auth'
 
 import { Background } from '../../components/Background'
 import { ButtonIcon } from '../../components/ButtonIcon'
-import IllustrationImg from '../../assets/illustration.png'
 
 import { styles } from './styles'
-import { theme } from '../../global/styles/theme'
+import { AnimatedImage } from './AnimatedImage'
+import { AnimatedContent } from './AnimatedContent'
 
 export const SignIn = () => {
   const { loading, signIn } = useAuth()
+
+  const fadingButton = new Animated.Value(0)
 
   const handleSignIn = async () => {
     try {
@@ -20,39 +22,35 @@ export const SignIn = () => {
     }
   }
 
+  setTimeout(() => {
+    Animated.timing(
+      fadingButton,
+      {
+        toValue: 1,
+        duration: 600,
+        useNativeDriver: false
+      }
+    ).start()
+  }, 1200)
+
+
   return (
     <Background>
       <View style={styles.container}>
-        <Image
-          source={IllustrationImg}
-          style={styles.image}
-          resizeMode='stretch'
-        />
+
+        <AnimatedImage />
 
         <View style={styles.content}>
-          <Text style={styles.title}>
-            Conecte-se {'\n'}
-            e organize suas {'\n'}
-            jogatinas
-          </Text>
-          <Text style={styles.subtitle}>
-            Crie grupos para jogar seus games {`\n`}
-            favoritos com seus amigos
-          </Text>
+          <AnimatedContent />
 
-          {loading ?
-            <ActivityIndicator
-              size='small'
-              color={theme.colors.primary}
-            />
-            :
+          <Animated.View style={{ opacity: fadingButton }}>
             <ButtonIcon
               title='Entrar com Discord'
               activeOpacity={0.7}
               onPress={handleSignIn}
+              loading={loading}
             />
-
-          }
+          </Animated.View>
         </View>
       </View>
     </Background>

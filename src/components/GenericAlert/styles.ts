@@ -39,7 +39,7 @@ export const styles = StyleSheet.create({
     height: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: theme.colors.secondary30
+    backgroundColor: theme.colors.primary
   },
   buttonType: {
     fontFamily: theme.fonts.text500,

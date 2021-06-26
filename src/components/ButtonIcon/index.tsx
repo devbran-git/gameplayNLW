@@ -1,16 +1,18 @@
 import React from 'react'
-import { Text, View, Image } from 'react-native'
+import { Text, View, Image, ActivityIndicator } from 'react-native'
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler'
 
 import DiscordImg from '../../assets/discord.png'
 
+import { theme } from '../../global/styles/theme'
 import { styles } from './styles'
 
 type Props = RectButtonProps & {
   title: string
+  loading?: boolean
 }
 
-export const ButtonIcon = ({ title, ...rest }: Props) => {
+export const ButtonIcon = ({ title, loading, ...rest }: Props) => {
   return (
     <RectButton style={styles.container} {...rest}>
       <View style={styles.iconWrapper}>
@@ -18,7 +20,14 @@ export const ButtonIcon = ({ title, ...rest }: Props) => {
       </View>
 
       <Text style={styles.title}>
-        {title}
+        {loading ?
+          <ActivityIndicator
+            size='small'
+            color={theme.colors.heading}
+          />
+          :
+          title
+        }
       </Text>
     </RectButton>
   )

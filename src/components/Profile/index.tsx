@@ -1,6 +1,7 @@
 import React from 'react'
-import { View, Text, Alert } from 'react-native'
-import { RectButton, RectButtonProps } from 'react-native-gesture-handler'
+import { View, Text } from 'react-native'
+import { RectButton } from 'react-native-gesture-handler'
+import { useNavigation } from '@react-navigation/native'
 
 import { useAuth } from '../../hooks/auth'
 
@@ -9,27 +10,15 @@ import { Avatar } from '../Avatar'
 import { styles } from './styles'
 
 export const Profile = () => {
-  const { user, singOut } = useAuth()
+  const { navigate } = useNavigation()
+  const { user } = useAuth()
 
-  const handleSignOut = () => {
-    Alert.alert('Logout', 'Deseja sair do GamePlay?',
-      [
-        {
-          text: 'Não',
-          style: 'cancel'
-        },
-        {
-          text: 'Sim',
-          onPress: () => singOut()
-        }
-      ])
-  }
-
+  const handleProfileScreen = () => navigate('ProfileScreen')
 
   return (
     <View style={styles.container}>
 
-      <RectButton onPress={handleSignOut}>
+      <RectButton onPress={handleProfileScreen}>
         <Avatar urlImage={user.avatar} />
       </RectButton>
 
