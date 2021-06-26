@@ -7,29 +7,27 @@ import {
   Platform,
   ImageBackground
 } from 'react-native'
-
-import * as Linking from 'expo-linking'
-
-import { BorderlessButton } from 'react-native-gesture-handler'
 import { Fontisto } from '@expo/vector-icons'
+import * as Linking from 'expo-linking'
+import { BorderlessButton } from 'react-native-gesture-handler'
+import { useRoute } from '@react-navigation/core'
 
-import { Member, MemberProps } from '../../components/Member'
+import { Load } from '../../components/Load'
 import { Header } from '../../components/Header/index'
+import { ListHeader } from '../../components/ListHeader'
 import { ButtonIcon } from '../../components/ButtonIcon'
 import { Background } from '../../components/Background'
-import { ListHeader } from '../../components/ListHeader'
 import { ListDivider } from '../../components/ListDivider'
-
-import { api } from '../../services/api'
+import { GenericAlert } from '../../components/GenericAlert'
+import { Member, MemberProps } from '../../components/Member'
+import { AppointmentProps } from '../../components/Appointment'
 
 import BannerImg from '../../assets/banner.png'
 
+import { api } from '../../services/api'
+
 import { theme } from '../../global/styles/theme'
 import { styles } from './styles'
-import { useRoute } from '@react-navigation/core'
-import { AppointmentProps } from '../../components/Appointment'
-import { GenericAlert } from '../../components/GenericAlert'
-import { Load } from '../../components/Load'
 
 type Params = {
   guildSelected: AppointmentProps

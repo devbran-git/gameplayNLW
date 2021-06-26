@@ -19,10 +19,11 @@ import { LogoutModal } from '../../components/LogoutModal'
 
 import TurnOffImg from '../../assets/turn-off.svg'
 
-import { styles } from './styles'
 import { useAuth } from '../../hooks/auth'
-
 import { COLLECTION_APPOINTMENTS } from '../../configs/database'
+
+import { styles } from './styles'
+
 
 export const ProfileScreen = () => {
   const { user } = useAuth()

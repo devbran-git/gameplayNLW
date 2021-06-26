@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, ActivityIndicator } from 'react-native'
-import { theme } from '../../global/styles/theme'
 
+import { theme } from '../../global/styles/theme'
 import { styles } from './styles'
 
 export const Load = () => {

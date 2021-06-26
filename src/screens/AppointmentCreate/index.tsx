@@ -6,31 +6,28 @@ import {
   ScrollView,
   KeyboardAvoidingView,
 } from 'react-native'
-
 import { useNavigation } from '@react-navigation/native'
-
 import AsyncStorage from '@react-native-async-storage/async-storage'
-
 import { RectButton } from 'react-native-gesture-handler'
 import { Feather } from '@expo/vector-icons'
 import uuid from 'react-native-uuid'
 
 import { Guilds } from '../Guilds'
 import { Button } from '../../components/Button'
+import { GuildProps } from '../../components/Guild'
 import { TextArea } from '../../components/TextArea'
-import { GuildIcon } from '../../components/GuildIcon'
 import { Header } from '../../components/Header/index'
+import { GuildIcon } from '../../components/GuildIcon'
 import { ModalView } from '../../components/ModalView'
 import { SmallInput } from '../../components/SmallInput'
 import { Background } from '../../components/Background'
-import { CategorySelect } from '../../components/CategorySelect'
 import { GenericAlert } from '../../components/GenericAlert'
+import { CategorySelect } from '../../components/CategorySelect'
+
+import { COLLECTION_APPOINTMENTS } from '../../configs/database'
 
 import { theme } from '../../global/styles/theme'
 import { styles } from './styles'
-
-import { GuildProps } from '../../components/Guild'
-import { COLLECTION_APPOINTMENTS } from '../../configs/database'
 
 export const AppointmentCreate = () => {
 

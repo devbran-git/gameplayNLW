@@ -3,11 +3,12 @@ import { View, Text } from 'react-native'
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler'
 import { LinearGradient } from 'expo-linear-gradient'
 
+import { GuildProps } from '../Guild'
 import { GuildIcon } from '../GuildIcon'
 import PlayerSvg from '../../assets/player.svg'
+
 import CalendarSvg from '../../assets/calendar.svg'
 
-import { GuildProps } from '../Guild'
 import { categories } from '../../utils/categories'
 
 import { theme } from '../../global/styles/theme'

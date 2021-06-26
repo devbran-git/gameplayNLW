@@ -3,17 +3,18 @@ import { View, FlatList, Text } from 'react-native'
 import { useNavigation, useFocusEffect } from '@react-navigation/native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
-import { CategorySelect } from '../../components/CategorySelect'
-import { Appointment, AppointmentProps } from '../../components/Appointment'
-import { ListDivider } from '../../components/ListDivider'
+import { Load } from '../../components/Load'
+import { Profile } from '../../components/Profile'
+import { ButtonAdd } from '../../components/ButtonAdd'
 import { ListHeader } from '../../components/ListHeader'
 import { Background } from '../../components/Background'
-import { ButtonAdd } from '../../components/ButtonAdd'
-import { Profile } from '../../components/Profile'
-import { Load } from '../../components/Load'
+import { ListDivider } from '../../components/ListDivider'
+import { CategorySelect } from '../../components/CategorySelect'
+import { Appointment, AppointmentProps } from '../../components/Appointment'
+
+import { COLLECTION_APPOINTMENTS } from '../../configs/database'
 
 import { styles } from './styles'
-import { COLLECTION_APPOINTMENTS } from '../../configs/database'
 
 export const Home = () => {
   const { navigate } = useNavigation()

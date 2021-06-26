@@ -6,9 +6,7 @@ import {
   ModalProps,
   TouchableWithoutFeedback
 } from 'react-native'
-
 import { RectButtonProps, RectButton } from 'react-native-gesture-handler'
-
 import { LinearGradient } from 'expo-linear-gradient'
 
 import { theme } from '../../global/styles/theme'

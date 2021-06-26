@@ -3,9 +3,9 @@ import { ScrollView } from 'react-native'
 
 import { Category } from '../Category'
 
-import { styles } from './styles'
-
 import { categories } from '../../utils/categories'
+
+import { styles } from './styles'
 
 type Props = {
   categorySelected: string

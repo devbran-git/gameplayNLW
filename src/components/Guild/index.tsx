@@ -5,7 +5,6 @@ import {
   TouchableOpacity,
   TouchableOpacityProps
 } from 'react-native'
-
 import { Feather } from '@expo/vector-icons'
 
 import { GuildIcon } from '../GuildIcon'
