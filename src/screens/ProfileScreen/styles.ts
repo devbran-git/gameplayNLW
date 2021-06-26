@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native'
-import { getBottomSpace } from 'react-native-iphone-x-helper'
 import { theme } from '../../global/styles/theme'
 
 export const styles = StyleSheet.create({
@@ -58,13 +57,14 @@ export const styles = StyleSheet.create({
     borderColor: theme.colors.secondary50,
   },
   textArea: {
+    flexWrap: 'wrap',
     width: '100%',
     height: 95,
     backgroundColor: theme.colors.secondary40,
     color: theme.colors.heading,
     borderRadius: 8,
     fontFamily: theme.fonts.text400,
-    fontSize: 13,
+    fontSize: 14,
     marginRight: 4,
     paddingHorizontal: 16,
     paddingTop: 16,

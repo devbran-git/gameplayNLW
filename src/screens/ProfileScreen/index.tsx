@@ -8,28 +8,26 @@ import {
   ScrollView,
   KeyboardAvoidingView
 } from 'react-native'
+
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import { RectButton } from 'react-native-gesture-handler'
 
 import { Header } from '../../components/Header/index'
 import { Background } from '../../components/Background'
-import { GenericAlert } from '../../components/GenericAlert'
 
-import { useRoute } from '@react-navigation/core'
-import { COLLECTION_APPOINTMENTS } from '../../configs/database'
+import TurnOffImg from '../../assets/turn-off.svg'
 
 import { styles } from './styles'
 import { useAuth } from '../../hooks/auth'
 
-import TurnOffImg from '../../assets/turn-off.svg'
+import { COLLECTION_APPOINTMENTS } from '../../configs/database'
 
 export const ProfileScreen = () => {
   const { user } = useAuth()
-  const route = useRoute()
 
   const [appointment, setAppointment] = useState([])
-  const gamerBio = 'Lendário por natureza. O céu é o limite!'
+  const [gamerBio, setGamerBio] = useState('')
 
   const loadAppointments = async () => {
     const response = await AsyncStorage.getItem(COLLECTION_APPOINTMENTS)
@@ -47,8 +45,9 @@ export const ProfileScreen = () => {
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
-      <Background>
-        <ScrollView>
+      <ScrollView>
+
+        <Background>
 
           <Header title="Perfil" />
 
@@ -90,19 +89,19 @@ export const ProfileScreen = () => {
             <TextInput
               style={styles.textArea}
               value={gamerBio}
+              numberOfLines={5}
             />
-
 
             <RectButton style={styles.containerButton}>
               <View style={styles.iconWrapper}>
                 <TurnOffImg />
               </View>
-
               <Text style={styles.titleButton}>Sair</Text>
             </RectButton>
+
           </View>
-        </ScrollView>
-      </Background>
+        </Background>
+      </ScrollView>
     </KeyboardAvoidingView>
   )
 }
