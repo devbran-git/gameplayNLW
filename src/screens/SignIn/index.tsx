@@ -1,13 +1,14 @@
 import React from 'react'
 import { View, Alert, Animated } from 'react-native'
-import { useAuth } from '../../hooks/auth'
 
+import { AnimatedImage } from './AnimatedImage'
+import { AnimatedContent } from './AnimatedContent'
 import { Background } from '../../components/Background'
 import { ButtonIcon } from '../../components/ButtonIcon'
 
+import { useAuth } from '../../hooks/auth'
+
 import { styles } from './styles'
-import { AnimatedImage } from './AnimatedImage'
-import { AnimatedContent } from './AnimatedContent'
 
 export const SignIn = () => {
   const { loading, signIn } = useAuth()

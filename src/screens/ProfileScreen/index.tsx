@@ -15,6 +15,7 @@ import { RectButton } from 'react-native-gesture-handler'
 
 import { Header } from '../../components/Header/index'
 import { Background } from '../../components/Background'
+import { LogoutModal } from '../../components/LogoutModal'
 
 import TurnOffImg from '../../assets/turn-off.svg'
 
@@ -28,6 +29,9 @@ export const ProfileScreen = () => {
 
   const [appointment, setAppointment] = useState([])
   const [gamerBio, setGamerBio] = useState('')
+  const [logoutModal, setLogoutModal] = useState(false)
+
+  const handleAlert = () => setLogoutModal(!logoutModal)
 
   const loadAppointments = async () => {
     const response = await AsyncStorage.getItem(COLLECTION_APPOINTMENTS)
@@ -111,7 +115,10 @@ export const ProfileScreen = () => {
               maxLength={100}
             />
 
-            <RectButton style={styles.containerButton}>
+            <RectButton
+              style={styles.containerButton}
+              onPress={handleAlert}
+            >
               <View style={styles.iconWrapper}>
                 <TurnOffImg />
               </View>
@@ -121,6 +128,11 @@ export const ProfileScreen = () => {
           </View>
         </Background>
       </ScrollView>
+
+      <LogoutModal
+        visible={logoutModal}
+        onPress={handleAlert}
+      />
     </KeyboardAvoidingView>
   )
 }
