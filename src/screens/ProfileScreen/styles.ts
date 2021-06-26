@@ -64,13 +64,14 @@ export const styles = StyleSheet.create({
     color: theme.colors.heading,
     borderRadius: 8,
     fontFamily: theme.fonts.text400,
-    fontSize: 14,
+    fontSize: 13,
     marginRight: 4,
     paddingHorizontal: 16,
     paddingTop: 16,
     borderWidth: 1,
     borderColor: theme.colors.secondary50,
     textAlignVertical: 'top',
+    lineHeight: 21
   },
   containerButton: {
     width: '100%',
@@ -79,6 +80,7 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     marginTop: 22
   },
   titleButton: {
@@ -87,6 +89,7 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.text500,
     fontSize: 15,
     textAlign: 'center',
+    right: 20
   },
   iconWrapper: {
     width: 36,

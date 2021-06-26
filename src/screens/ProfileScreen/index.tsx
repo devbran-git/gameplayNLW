@@ -36,6 +36,21 @@ export const ProfileScreen = () => {
     setAppointment(storage)
   }
 
+  const handleBio = async (bio: string) => {
+    setGamerBio(bio)
+
+    await AsyncStorage.setItem('@gameplay:gamerbio', gamerBio)
+  }
+
+  const loadGamerBio = async () => {
+    const storageBio = await AsyncStorage.getItem('@gameplay:gamerbio')
+    setGamerBio(String(storageBio))
+  }
+
+  useEffect(() => {
+    loadGamerBio()
+  }, [])
+
   useEffect(() => {
     loadAppointments()
   }, [])
@@ -87,9 +102,13 @@ export const ProfileScreen = () => {
 
             <Text style={styles.label}>GamerBio</Text>
             <TextInput
+              multiline
               style={styles.textArea}
               value={gamerBio}
               numberOfLines={5}
+              autoCorrect={false}
+              onChangeText={(t) => handleBio(t)}
+              maxLength={100}
             />
 
             <RectButton style={styles.containerButton}>
